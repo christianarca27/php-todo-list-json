@@ -1,11 +1,5 @@
 #task-list {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 1rem;
-
     .task {
-        display: flex;
-        gap: 2rem;
 
         .task-text {
             cursor: pointer;

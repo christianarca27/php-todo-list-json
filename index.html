@@ -22,16 +22,19 @@
 <body>
     <div id="app">
         <div class="container">
-            <h1>Todo</h1>
+            <h1>Todo List</h1>
 
-            <ul id="task-list">
-                <li v-for="(todo, index) in todos" class="task" :class="todo.done ? 'done' : ''">
-                    <span class="task-text" @click="toggleTaskDone(index)">{{ todo.text }}</span>
-                    <i class="task-delete fa-regular fa-trash-can" @click="deleteTodo(index)"></i>
+            <ul id="task-list" class="list-group w-50 mb-3">
+                <li v-for="(todo, index) in todos" class="task list-group-item d-flex justify-content-between"
+                    :class="todo.done ? 'done' : ''">
+                    <span class="task-text me-3" @click="toggleTaskDone(index)">{{ todo.text }}</span>
+                    <button class="task-delete btn btn-outline-primary" @click="deleteTodo(index)">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </button>
                 </li>
             </ul>
 
-            <div class="input-group mb-3" @keyup.enter="addTodo()">
+            <div class="input-group w-50 mb-3" @keyup.enter="addTodo()">
                 <span class="input-group-text" id="basic-addon1">New todo</span>
                 <input v-model="newTodoText" type="text" class="form-control" placeholder="Write text here..."
                     aria-label="new-todo" aria-describedby="basic-addon1">
