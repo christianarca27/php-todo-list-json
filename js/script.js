@@ -31,6 +31,19 @@ createApp({
                     this.getTodos();
                 });
         },
+
+        toggleTaskDone(index) {
+            // Prelevo il testo inserito dall'utente
+            const postData = {
+                todoIndex: index,
+            }
+            // Invio a server.php una richiesta POST per la modifica dell'elemento con indice 'todoIndex'
+            axios.post('./server.php', postData, { headers: { 'Content-Type': 'multipart/form-data' } })
+                .then(res => {
+                    // Al termine della richiesta POST aggiorno i dati prelevati
+                    this.getTodos();
+                });
+        }
     },
 
     mounted() {

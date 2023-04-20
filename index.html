@@ -23,7 +23,8 @@
             <h1>Todo</h1>
 
             <ul>
-                <li v-for="todo in todos" :class="todo.done ? 'done' : ''">
+                <li v-for="(todo, index) in todos" class="task" :class="todo.done ? 'done' : ''"
+                    @click="toggleTaskDone(index)">
                     {{ todo.text }}
                 </li>
             </ul>
