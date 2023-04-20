@@ -43,7 +43,20 @@ createApp({
                     // Al termine della richiesta POST aggiorno i dati prelevati
                     this.getTodos();
                 });
-        }
+        },
+
+        deleteTodo(index) {
+            // Prelevo il testo inserito dall'utente
+            const postData = {
+                deletedIndex: index,
+            }
+            // Invio a server.php una richiesta POST per la rimozione dell'elemento con indice 'deletedIndex'
+            axios.post('./server.php', postData, { headers: { 'Content-Type': 'multipart/form-data' } })
+                .then(res => {
+                    // Al termine della richiesta POST aggiorno i dati prelevati
+                    this.getTodos();
+                });
+        },
     },
 
     mounted() {

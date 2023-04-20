@@ -1,7 +1,30 @@
-.task {
-    cursor: pointer;
+#task-list {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
 
-    &.done {
-        text-decoration: line-through;
+    .task {
+        display: flex;
+        gap: 2rem;
+
+        .task-text {
+            cursor: pointer;
+
+            &:hover {
+                transform: translateY(-.2rem);
+            }
+        }
+
+        .task-delete {
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+
+        &.done .task-text {
+            text-decoration: line-through;
+        }
     }
 }
